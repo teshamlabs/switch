@@ -7,40 +7,15 @@
   <style>
     body{margin:0;display:flex;min-height:100vh;align-items:center;justify-content:center;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
     .card{max-width:560px;padding:24px;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 4px 14px rgba(0,0,0,.06);text-align:center}
-    .btn{display:inline-block;padding:14px 18px;border-radius:12px;text-decoration:none;font-weight:600;border:1px solid #e5e7eb}
-    .btn-primary{background:#111827;color:#fff}
-    .muted{color:#6b7280;font-size:14px}
-    .links a{display:block;margin-top:10px}
+    .btn{display:inline-block;padding:16px 22px;border-radius:12px;text-decoration:none;font-weight:600;border:1px solid #e5e7eb;background:#111827;color:#fff;font-size:18px}
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>Переключить сеть (3G/4G)</h1>
-    <p>Нажмите кнопку ниже. Лучше открывать в <b>Google Chrome</b> на Android.</p>
-
-    <p><a class="btn btn-primary" href="intent:#Intent;action=android.settings.NETWORK_OPERATOR_SETTINGS;end">
+    <h1>Переключить сеть</h1>
+    <p><a class="btn" href="intent:#Intent;action=android.settings.NETWORK_OPERATOR_SETTINGS;end">
       Открыть настройки сети
     </a></p>
-
-    <div class="links">
-      <a class="btn" href="intent:#Intent;action=android.settings.WIRELESS_SETTINGS;end">Альтернатива: Беспроводные сети</a>
-      <a class="btn" href="intent:#Intent;action=android.settings.DATA_ROAMING_SETTINGS;end">Запасной вариант: Роуминг</a>
-      <a class="btn" href="intent:#Intent;action=android.settings.DATA_USAGE_SETTINGS;end">Запасной: Использование данных</a>
-    </div>
-
-    <p class="muted" style="margin-top:14px">
-      Если не открывается: откройте эту страницу в Google Chrome и попробуйте еще раз.
-    </p>
   </div>
-
-  <script>
-    // Нежная авто-попытка: не обязательно, но иногда помогает
-    if (/Android/i.test(navigator.userAgent)) {
-      setTimeout(function () {
-        try { location.href = 'intent:#Intent;action=android.settings.NETWORK_OPERATOR_SETTINGS;end'; } catch(e){}
-      }, 800);
-    }
-  </script>
 </body>
 </html>
-
